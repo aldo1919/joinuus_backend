@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="90132a1d0d9f4985b2fb0a137c554c08" Name="Diagram1">
+        <EntityTypeShape EntityType="JOINNUSModel.BOLETA" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.CANTMAX" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.CANTMIN" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.CANTXUSU" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.CATEGORIA" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.CIUDAD" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.COMPRA" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.ENTRADA" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.EVENTO" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.FINVENTA" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.GENERO" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.METPAGO" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.PAIS" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.TB_USUARIO" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JOINNUSModel.TICKET" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="JOINNUSModel.FK_BOLCOM" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_ENTMAX" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_ENTMIN" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_ENTCANTXUSU" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_EVECAT" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_CIUPAIS" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_EVECIU" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_COMMETPAGO" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_COMUSU" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_TKCOM" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_ENTEVE" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_FINENT" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_TKENT" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_EVEUSU" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_USUGEN" ManuallyRouted="false" />
+        <AssociationConnector Association="JOINNUSModel.FK_USUPA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

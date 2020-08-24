@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JOINNUSModelStoreContainer" CdmEntityContainer="JOINNUSEntities1">
+    <EntitySetMapping Name="BOLETA">
+      <EntityTypeMapping TypeName="JOINNUSModel.BOLETA">
+        <MappingFragment StoreEntitySet="BOLETA">
+          <ScalarProperty Name="ID_BOL" ColumnName="ID_BOL" />
+          <ScalarProperty Name="BOL_CODPAGO" ColumnName="BOL_CODPAGO" />
+          <ScalarProperty Name="BOL_PRECTOTAL" ColumnName="BOL_PRECTOTAL" />
+          <ScalarProperty Name="ID_COMP" ColumnName="ID_COMP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CANTMAX">
+      <EntityTypeMapping TypeName="JOINNUSModel.CANTMAX">
+        <MappingFragment StoreEntitySet="CANTMAX">
+          <ScalarProperty Name="ID_CANTMAX" ColumnName="ID_CANTMAX" />
+          <ScalarProperty Name="DESC_CANTMAX" ColumnName="DESC_CANTMAX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CANTMIN">
+      <EntityTypeMapping TypeName="JOINNUSModel.CANTMIN">
+        <MappingFragment StoreEntitySet="CANTMIN">
+          <ScalarProperty Name="ID_CANTMIN" ColumnName="ID_CANTMIN" />
+          <ScalarProperty Name="DESC_CANT" ColumnName="DESC_CANT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CANTXUSU">
+      <EntityTypeMapping TypeName="JOINNUSModel.CANTXUSU">
+        <MappingFragment StoreEntitySet="CANTXUSU">
+          <ScalarProperty Name="ID_CANTXUSU" ColumnName="ID_CANTXUSU" />
+          <ScalarProperty Name="DESC_CANTXUSU" ColumnName="DESC_CANTXUSU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="JOINNUSModel.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="ID_CAT" ColumnName="ID_CAT" />
+          <ScalarProperty Name="CAT_DESC" ColumnName="CAT_DESC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CIUDAD">
+      <EntityTypeMapping TypeName="JOINNUSModel.CIUDAD">
+        <MappingFragment StoreEntitySet="CIUDAD">
+          <ScalarProperty Name="ID_CIU" ColumnName="ID_CIU" />
+          <ScalarProperty Name="CIUDAD1" ColumnName="CIUDAD" />
+          <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMPRA">
+      <EntityTypeMapping TypeName="JOINNUSModel.COMPRA">
+        <MappingFragment StoreEntitySet="COMPRA">
+          <ScalarProperty Name="ID_COMP" ColumnName="ID_COMP" />
+          <ScalarProperty Name="ID_USU" ColumnName="ID_USU" />
+          <ScalarProperty Name="ID_METPAGO" ColumnName="ID_METPAGO" />
+          <ScalarProperty Name="CANT_TICKETS" ColumnName="CANT_TICKETS" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENTRADA">
+      <EntityTypeMapping TypeName="JOINNUSModel.ENTRADA">
+        <MappingFragment StoreEntitySet="ENTRADA">
+          <ScalarProperty Name="ID_ENT" ColumnName="ID_ENT" />
+          <ScalarProperty Name="EN_NOMBRE" ColumnName="EN_NOMBRE" />
+          <ScalarProperty Name="EN_CANT" ColumnName="EN_CANT" />
+          <ScalarProperty Name="EN_PRECIO" ColumnName="EN_PRECIO" />
+          <ScalarProperty Name="EN_DESC" ColumnName="EN_DESC" />
+          <ScalarProperty Name="EN_ACTIVADO" ColumnName="EN_ACTIVADO" />
+          <ScalarProperty Name="ID_EVEN" ColumnName="ID_EVEN" />
+          <ScalarProperty Name="ID_CANTMIN" ColumnName="ID_CANTMIN" />
+          <ScalarProperty Name="ID_CANTMAX" ColumnName="ID_CANTMAX" />
+          <ScalarProperty Name="ID_CANTXUSU" ColumnName="ID_CANTXUSU" />
+          <ScalarProperty Name="ID_FINVENTA" ColumnName="ID_FINVENTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTO">
+      <EntityTypeMapping TypeName="JOINNUSModel.EVENTO">
+        <MappingFragment StoreEntitySet="EVENTO">
+          <ScalarProperty Name="ID_EV" ColumnName="ID_EV" />
+          <ScalarProperty Name="EV_NOMBRE" ColumnName="EV_NOMBRE" />
+          <ScalarProperty Name="EV_DESC" ColumnName="EV_DESC" />
+          <ScalarProperty Name="EV_INFO" ColumnName="EV_INFO" />
+          <ScalarProperty Name="EV_FECINICIO" ColumnName="EV_FECINICIO" />
+          <ScalarProperty Name="EV_FECFIN" ColumnName="EV_FECFIN" />
+          <ScalarProperty Name="EV_IMG" ColumnName="EV_IMG" />
+          <ScalarProperty Name="EV_VIDEO" ColumnName="EV_VIDEO" />
+          <ScalarProperty Name="EV_IMGTICKET" ColumnName="EV_IMGTICKET" />
+          <ScalarProperty Name="EV_DIREC" ColumnName="EV_DIREC" />
+          <ScalarProperty Name="EV_REF" ColumnName="EV_REF" />
+          <ScalarProperty Name="EV_ENCU" ColumnName="EV_ENCU" />
+          <ScalarProperty Name="ID_CATEG" ColumnName="ID_CATEG" />
+          <ScalarProperty Name="ID_USU" ColumnName="ID_USU" />
+          <ScalarProperty Name="ID_CIU" ColumnName="ID_CIU" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FINVENTA">
+      <EntityTypeMapping TypeName="JOINNUSModel.FINVENTA">
+        <MappingFragment StoreEntitySet="FINVENTA">
+          <ScalarProperty Name="ID_FINVENTA" ColumnName="ID_FINVENTA" />
+          <ScalarProperty Name="DESC_FINVENTA" ColumnName="DESC_FINVENTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENERO">
+      <EntityTypeMapping TypeName="JOINNUSModel.GENERO">
+        <MappingFragment StoreEntitySet="GENERO">
+          <ScalarProperty Name="ID_GEN" ColumnName="ID_GEN" />
+          <ScalarProperty Name="GENERO1" ColumnName="GENERO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METPAGO">
+      <EntityTypeMapping TypeName="JOINNUSModel.METPAGO">
+        <MappingFragment StoreEntitySet="METPAGO">
+          <ScalarProperty Name="ID_METPAGO" ColumnName="ID_METPAGO" />
+          <ScalarProperty Name="DESC_METPAGO" ColumnName="DESC_METPAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAIS">
+      <EntityTypeMapping TypeName="JOINNUSModel.PAIS">
+        <MappingFragment StoreEntitySet="PAIS">
+          <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+          <ScalarProperty Name="PAIS1" ColumnName="PAIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO">
+      <EntityTypeMapping TypeName="JOINNUSModel.TB_USUARIO">
+        <MappingFragment StoreEntitySet="TB_USUARIO">
+          <ScalarProperty Name="ID_USU" ColumnName="ID_USU" />
+          <ScalarProperty Name="U_NOMBRES" ColumnName="U_NOMBRES" />
+          <ScalarProperty Name="U_APELLIDOS" ColumnName="U_APELLIDOS" />
+          <ScalarProperty Name="U_CORREO" ColumnName="U_CORREO" />
+          <ScalarProperty Name="U_CONTRA" ColumnName="U_CONTRA" />
+          <ScalarProperty Name="ID_GEN" ColumnName="ID_GEN" />
+          <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TICKET">
+      <EntityTypeMapping TypeName="JOINNUSModel.TICKET">
+        <MappingFragment StoreEntitySet="TICKET">
+          <ScalarProperty Name="ID_TK" ColumnName="ID_TK" />
+          <ScalarProperty Name="ID_ENT" ColumnName="ID_ENT" />
+          <ScalarProperty Name="ID_COMP" ColumnName="ID_COMP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

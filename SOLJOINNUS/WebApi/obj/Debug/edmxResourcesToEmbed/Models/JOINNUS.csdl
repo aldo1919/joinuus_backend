@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JOINNUSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BOLETA">
+    <Key>
+      <PropertyRef Name="ID_BOL" />
+    </Key>
+    <Property Name="ID_BOL" Type="Int32" Nullable="false" />
+    <Property Name="BOL_CODPAGO" Type="Int32" />
+    <Property Name="BOL_PRECTOTAL" Type="Double" />
+    <Property Name="ID_COMP" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="COMPRA" Relationship="Self.FK_BOLCOM" FromRole="BOLETA" ToRole="COMPRA" />
+  </EntityType>
+  <EntityType Name="CANTMAX">
+    <Key>
+      <PropertyRef Name="ID_CANTMAX" />
+    </Key>
+    <Property Name="ID_CANTMAX" Type="Int32" Nullable="false" />
+    <Property Name="DESC_CANTMAX" Type="Int32" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_ENTMAX" FromRole="CANTMAX" ToRole="ENTRADA" />
+  </EntityType>
+  <EntityType Name="CANTMIN">
+    <Key>
+      <PropertyRef Name="ID_CANTMIN" />
+    </Key>
+    <Property Name="ID_CANTMIN" Type="Int32" Nullable="false" />
+    <Property Name="DESC_CANT" Type="Int32" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_ENTMIN" FromRole="CANTMIN" ToRole="ENTRADA" />
+  </EntityType>
+  <EntityType Name="CANTXUSU">
+    <Key>
+      <PropertyRef Name="ID_CANTXUSU" />
+    </Key>
+    <Property Name="ID_CANTXUSU" Type="Int32" Nullable="false" />
+    <Property Name="DESC_CANTXUSU" Type="Int32" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_ENTCANTXUSU" FromRole="CANTXUSU" ToRole="ENTRADA" />
+  </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="ID_CAT" />
+    </Key>
+    <Property Name="ID_CAT" Type="Int32" Nullable="false" />
+    <Property Name="CAT_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVECAT" FromRole="CATEGORIA" ToRole="EVENTO" />
+  </EntityType>
+  <EntityType Name="CIUDAD">
+    <Key>
+      <PropertyRef Name="ID_CIU" />
+    </Key>
+    <Property Name="ID_CIU" Type="Int32" Nullable="false" />
+    <Property Name="CIUDAD1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PAIS" Relationship="Self.FK_CIUPAIS" FromRole="CIUDAD" ToRole="PAIS" />
+    <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVECIU" FromRole="CIUDAD" ToRole="EVENTO" />
+  </EntityType>
+  <EntityType Name="COMPRA">
+    <Key>
+      <PropertyRef Name="ID_COMP" />
+    </Key>
+    <Property Name="ID_COMP" Type="Int32" Nullable="false" />
+    <Property Name="ID_USU" Type="Int32" Nullable="false" />
+    <Property Name="ID_METPAGO" Type="Int32" Nullable="false" />
+    <Property Name="CANT_TICKETS" Type="Int32" />
+    <Property Name="PRECIO" Type="Double" />
+    <NavigationProperty Name="BOLETA" Relationship="Self.FK_BOLCOM" FromRole="COMPRA" ToRole="BOLETA" />
+    <NavigationProperty Name="METPAGO" Relationship="Self.FK_COMMETPAGO" FromRole="COMPRA" ToRole="METPAGO" />
+    <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_COMUSU" FromRole="COMPRA" ToRole="TB_USUARIO" />
+    <NavigationProperty Name="TICKET" Relationship="Self.FK_TKCOM" FromRole="COMPRA" ToRole="TICKET" />
+  </EntityType>
+  <EntityType Name="ENTRADA">
+    <Key>
+      <PropertyRef Name="ID_ENT" />
+    </Key>
+    <Property Name="ID_ENT" Type="Int32" Nullable="false" />
+    <Property Name="EN_NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EN_CANT" Type="Int32" />
+    <Property Name="EN_PRECIO" Type="Double" />
+    <Property Name="EN_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EN_ACTIVADO" Type="Boolean" />
+    <Property Name="ID_EVEN" Type="Int32" Nullable="false" />
+    <Property Name="ID_CANTMIN" Type="Int32" Nullable="false" />
+    <Property Name="ID_CANTMAX" Type="Int32" Nullable="false" />
+    <Property Name="ID_CANTXUSU" Type="Int32" Nullable="false" />
+    <Property Name="ID_FINVENTA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CANTMAX" Relationship="Self.FK_ENTMAX" FromRole="ENTRADA" ToRole="CANTMAX" />
+    <NavigationProperty Name="CANTMIN" Relationship="Self.FK_ENTMIN" FromRole="ENTRADA" ToRole="CANTMIN" />
+    <NavigationProperty Name="CANTXUSU" Relationship="Self.FK_ENTCANTXUSU" FromRole="ENTRADA" ToRole="CANTXUSU" />
+    <NavigationProperty Name="EVENTO" Relationship="Self.FK_ENTEVE" FromRole="ENTRADA" ToRole="EVENTO" />
+    <NavigationProperty Name="FINVENTA" Relationship="Self.FK_FINENT" FromRole="ENTRADA" ToRole="FINVENTA" />
+    <NavigationProperty Name="TICKET" Relationship="Self.FK_TKENT" FromRole="ENTRADA" ToRole="TICKET" />
+  </EntityType>
+  <EntityType Name="EVENTO">
+    <Key>
+      <PropertyRef Name="ID_EV" />
+    </Key>
+    <Property Name="ID_EV" Type="Int32" Nullable="false" />
+    <Property Name="EV_NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EV_DESC" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EV_INFO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EV_FECINICIO" Type="DateTime" Precision="0" />
+    <Property Name="EV_FECFIN" Type="DateTime" Precision="0" />
+    <Property Name="EV_IMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EV_VIDEO" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EV_IMGTICKET" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="EV_DIREC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EV_REF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EV_ENCU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_CATEG" Type="Int32" Nullable="false" />
+    <Property Name="ID_USU" Type="Int32" Nullable="false" />
+    <Property Name="ID_CIU" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CATEGORIA" Relationship="Self.FK_EVECAT" FromRole="EVENTO" ToRole="CATEGORIA" />
+    <NavigationProperty Name="CIUDAD" Relationship="Self.FK_EVECIU" FromRole="EVENTO" ToRole="CIUDAD" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_ENTEVE" FromRole="EVENTO" ToRole="ENTRADA" />
+    <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_EVEUSU" FromRole="EVENTO" ToRole="TB_USUARIO" />
+  </EntityType>
+  <EntityType Name="FINVENTA">
+    <Key>
+      <PropertyRef Name="ID_FINVENTA" />
+    </Key>
+    <Property Name="ID_FINVENTA" Type="Int32" Nullable="false" />
+    <Property Name="DESC_FINVENTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_FINENT" FromRole="FINVENTA" ToRole="ENTRADA" />
+  </EntityType>
+  <EntityType Name="GENERO">
+    <Key>
+      <PropertyRef Name="ID_GEN" />
+    </Key>
+    <Property Name="ID_GEN" Type="Int32" Nullable="false" />
+    <Property Name="GENERO1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_USUGEN" FromRole="GENERO" ToRole="TB_USUARIO" />
+  </EntityType>
+  <EntityType Name="METPAGO">
+    <Key>
+      <PropertyRef Name="ID_METPAGO" />
+    </Key>
+    <Property Name="ID_METPAGO" Type="Int32" Nullable="false" />
+    <Property Name="DESC_METPAGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="COMPRA" Relationship="Self.FK_COMMETPAGO" FromRole="METPAGO" ToRole="COMPRA" />
+  </EntityType>
+  <EntityType Name="PAIS">
+    <Key>
+      <PropertyRef Name="ID_PAIS" />
+    </Key>
+    <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+    <Property Name="PAIS1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CIUDAD" Relationship="Self.FK_CIUPAIS" FromRole="PAIS" ToRole="CIUDAD" />
+    <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_USUPA" FromRole="PAIS" ToRole="TB_USUARIO" />
+  </EntityType>
+  <EntityType Name="TB_USUARIO">
+    <Key>
+      <PropertyRef Name="ID_USU" />
+    </Key>
+    <Property Name="ID_USU" Type="Int32" Nullable="false" />
+    <Property Name="U_NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_APELLIDOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_CORREO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="U_CONTRA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_GEN" Type="Int32" Nullable="false" />
+    <Property Name="ID_PAIS" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="COMPRA" Relationship="Self.FK_COMUSU" FromRole="TB_USUARIO" ToRole="COMPRA" />
+    <NavigationProperty Name="EVENTO" Relationship="Self.FK_EVEUSU" FromRole="TB_USUARIO" ToRole="EVENTO" />
+    <NavigationProperty Name="GENERO" Relationship="Self.FK_USUGEN" FromRole="TB_USUARIO" ToRole="GENERO" />
+    <NavigationProperty Name="PAIS" Relationship="Self.FK_USUPA" FromRole="TB_USUARIO" ToRole="PAIS" />
+  </EntityType>
+  <EntityType Name="TICKET">
+    <Key>
+      <PropertyRef Name="ID_TK" />
+    </Key>
+    <Property Name="ID_TK" Type="Int32" Nullable="false" />
+    <Property Name="ID_ENT" Type="Int32" Nullable="false" />
+    <Property Name="ID_COMP" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="COMPRA" Relationship="Self.FK_TKCOM" FromRole="TICKET" ToRole="COMPRA" />
+    <NavigationProperty Name="ENTRADA" Relationship="Self.FK_TKENT" FromRole="TICKET" ToRole="ENTRADA" />
+  </EntityType>
+  <Association Name="FK_BOLCOM">
+    <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="1" />
+    <End Role="BOLETA" Type="Self.BOLETA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPRA">
+        <PropertyRef Name="ID_COMP" />
+      </Principal>
+      <Dependent Role="BOLETA">
+        <PropertyRef Name="ID_COMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTMAX">
+    <End Role="CANTMAX" Type="Self.CANTMAX" Multiplicity="1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTMAX">
+        <PropertyRef Name="ID_CANTMAX" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="ID_CANTMAX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTMIN">
+    <End Role="CANTMIN" Type="Self.CANTMIN" Multiplicity="1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTMIN">
+        <PropertyRef Name="ID_CANTMIN" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="ID_CANTMIN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTCANTXUSU">
+    <End Role="CANTXUSU" Type="Self.CANTXUSU" Multiplicity="1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTXUSU">
+        <PropertyRef Name="ID_CANTXUSU" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="ID_CANTXUSU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVECAT">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="ID_CAT" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="ID_CATEG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CIUPAIS">
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+    <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAIS">
+        <PropertyRef Name="ID_PAIS" />
+      </Principal>
+      <Dependent Role="CIUDAD">
+        <PropertyRef Name="ID_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVECIU">
+    <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CIUDAD">
+        <PropertyRef Name="ID_CIU" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="ID_CIU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMMETPAGO">
+    <End Role="METPAGO" Type="Self.METPAGO" Multiplicity="1" />
+    <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="METPAGO">
+        <PropertyRef Name="ID_METPAGO" />
+      </Principal>
+      <Dependent Role="COMPRA">
+        <PropertyRef Name="ID_METPAGO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_COMUSU">
+    <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+    <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_USUARIO">
+        <PropertyRef Name="ID_USU" />
+      </Principal>
+      <Dependent Role="COMPRA">
+        <PropertyRef Name="ID_USU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKCOM">
+    <End Role="COMPRA" Type="Self.COMPRA" Multiplicity="1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMPRA">
+        <PropertyRef Name="ID_COMP" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="ID_COMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTEVE">
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EVENTO">
+        <PropertyRef Name="ID_EV" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="ID_EVEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FINENT">
+    <End Role="FINVENTA" Type="Self.FINVENTA" Multiplicity="1" />
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FINVENTA">
+        <PropertyRef Name="ID_FINVENTA" />
+      </Principal>
+      <Dependent Role="ENTRADA">
+        <PropertyRef Name="ID_FINVENTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKENT">
+    <End Role="ENTRADA" Type="Self.ENTRADA" Multiplicity="1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENTRADA">
+        <PropertyRef Name="ID_ENT" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="ID_ENT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EVEUSU">
+    <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+    <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_USUARIO">
+        <PropertyRef Name="ID_USU" />
+      </Principal>
+      <Dependent Role="EVENTO">
+        <PropertyRef Name="ID_USU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUGEN">
+    <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+    <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENERO">
+        <PropertyRef Name="ID_GEN" />
+      </Principal>
+      <Dependent Role="TB_USUARIO">
+        <PropertyRef Name="ID_GEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUPA">
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="1" />
+    <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAIS">
+        <PropertyRef Name="ID_PAIS" />
+      </Principal>
+      <Dependent Role="TB_USUARIO">
+        <PropertyRef Name="ID_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JOINNUSEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BOLETA" EntityType="Self.BOLETA" />
+    <EntitySet Name="CANTMAX" EntityType="Self.CANTMAX" />
+    <EntitySet Name="CANTMIN" EntityType="Self.CANTMIN" />
+    <EntitySet Name="CANTXUSU" EntityType="Self.CANTXUSU" />
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+    <EntitySet Name="CIUDAD" EntityType="Self.CIUDAD" />
+    <EntitySet Name="COMPRA" EntityType="Self.COMPRA" />
+    <EntitySet Name="ENTRADA" EntityType="Self.ENTRADA" />
+    <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
+    <EntitySet Name="FINVENTA" EntityType="Self.FINVENTA" />
+    <EntitySet Name="GENERO" EntityType="Self.GENERO" />
+    <EntitySet Name="METPAGO" EntityType="Self.METPAGO" />
+    <EntitySet Name="PAIS" EntityType="Self.PAIS" />
+    <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+    <EntitySet Name="TICKET" EntityType="Self.TICKET" />
+    <AssociationSet Name="FK_BOLCOM" Association="Self.FK_BOLCOM">
+      <End Role="COMPRA" EntitySet="COMPRA" />
+      <End Role="BOLETA" EntitySet="BOLETA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTMAX" Association="Self.FK_ENTMAX">
+      <End Role="CANTMAX" EntitySet="CANTMAX" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTMIN" Association="Self.FK_ENTMIN">
+      <End Role="CANTMIN" EntitySet="CANTMIN" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTCANTXUSU" Association="Self.FK_ENTCANTXUSU">
+      <End Role="CANTXUSU" EntitySet="CANTXUSU" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVECAT" Association="Self.FK_EVECAT">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CIUPAIS" Association="Self.FK_CIUPAIS">
+      <End Role="PAIS" EntitySet="PAIS" />
+      <End Role="CIUDAD" EntitySet="CIUDAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVECIU" Association="Self.FK_EVECIU">
+      <End Role="CIUDAD" EntitySet="CIUDAD" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMMETPAGO" Association="Self.FK_COMMETPAGO">
+      <End Role="METPAGO" EntitySet="METPAGO" />
+      <End Role="COMPRA" EntitySet="COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_COMUSU" Association="Self.FK_COMUSU">
+      <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+      <End Role="COMPRA" EntitySet="COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKCOM" Association="Self.FK_TKCOM">
+      <End Role="COMPRA" EntitySet="COMPRA" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTEVE" Association="Self.FK_ENTEVE">
+      <End Role="EVENTO" EntitySet="EVENTO" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FINENT" Association="Self.FK_FINENT">
+      <End Role="FINVENTA" EntitySet="FINVENTA" />
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKENT" Association="Self.FK_TKENT">
+      <End Role="ENTRADA" EntitySet="ENTRADA" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EVEUSU" Association="Self.FK_EVEUSU">
+      <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+      <End Role="EVENTO" EntitySet="EVENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUGEN" Association="Self.FK_USUGEN">
+      <End Role="GENERO" EntitySet="GENERO" />
+      <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUPA" Association="Self.FK_USUPA">
+      <End Role="PAIS" EntitySet="PAIS" />
+      <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
